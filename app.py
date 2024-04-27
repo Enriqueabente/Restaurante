@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from datetime import datetime
 
 # Código de tu aplicación Flask...
 
@@ -20,11 +21,19 @@ class Reserva(db.Model):
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        # Obtener datos del formulario
+        fecha_str = request.form['fecha']
+        print("Fecha recibida del formulario:", fecha_str)  # Agrega esta línea para verificar fecha_str
         fecha = request.form["fecha"]
         hora = request.form["hora"]
         personas = int(request.form["personas"])
         nombre_cliente = request.form["nombre"]
+
+        # Convertir la cadena de fecha en un objeto de fecha
+        fecha = datetime.strptime(fecha_str, '%Y-%m-%d').date()
+        hora_str = request.form['hora']
+
+        # Convertir la cadena de hora en un objeto de tiempo de Python
+        hora = datetime.strptime(hora_str, '%H:%M').time()
 
         # Hacer reserva
         nueva_reserva = Reserva(fecha=fecha, hora=hora, personas=personas, nombre_cliente=nombre_cliente)

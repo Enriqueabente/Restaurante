@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Time
 
 db = SQLAlchemy()
 
@@ -9,3 +10,4 @@ class Reserva(db.Model):
     hora = db.Column(db.Time)
     personas = db.Column(db.Integer)
     nombre_cliente = db.Column(db.String(100))
+    hora = db.Column(Time)
