@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Reserva</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold mb-4">Agregar Reserva</h1>
+    <form action="/" method="post" class="mb-8">
+        <label for="fecha" class="block mb-2">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required class="block w-full border border-gray-300 rounded-md px-4 py-2 mb-2">
+
+        <label for="hora" class="block mb-2">Hora:</label>
+        <input type="time" id="hora" name="hora" required class="block w-full border border-gray-300 rounded-md px-4 py-2 mb-2">
+
+        <label for="personas" class="block mb-2">Número de personas:</label>
+        <input type="number" id="personas" name="personas" min="1" required class="block w-full border border-gray-300 rounded-md px-4 py-2 mb-2">
+
+        <label for="nombre" class="block mb-2">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required class="block w-full border border-gray-300 rounded-md px-4 py-2 mb-2">
+
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Agregar Reserva</button>
+    </form>
+</div>
+
+</body>
+</html>
